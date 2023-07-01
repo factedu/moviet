@@ -11,6 +11,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 4. MySql Hosted on Planet Scale
 5. Server Hosted on Vercel
 
+## Sync DB
+```bash 
+npx prisma db push
+```
+
 ## Getting Started
 
 First, run the development server:
@@ -23,7 +28,7 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:32555](http://localhost:32555) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
