@@ -1,9 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import Link from 'next/link'
+import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from '@/components/theme-provider'
-import { ModeToggle } from '@/components/mode-toggle'
+import Header from '@/components/header'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,31 +21,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <body className={inter.className}>
+
+        <body className={inter.className}>
+          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
             <div className='min-h-screen'>
-              <header className="z-50 flex items-center gap-3 justify-between px-4 py-2 border-b shadow-sm fixed w-full bg-white dark:bg-slate-950">
-                <h1 className="text-2xl font-bold"><Link href={'/'}>MovieT</Link></h1>
-                <div className='flex-1 items-center content-center '>
-                  <Link href={'/movies'}>Movies</Link>
-                </div>
-                <div className='flex justify-between gap-4 items-center'>
-                  <SignedIn>
-                    <UserButton afterSignOutUrl='/' />
-                  </SignedIn>
-                  <SignedOut>
-                    <SignInButton />
-                  </SignedOut>
-                  <ModeToggle />
-                </div>
-              </header>
+              <Header />
               <div className='pt-16'>
                 {children}
               </div>
             </div>
-
-          </body>
-        </ThemeProvider>
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   )
