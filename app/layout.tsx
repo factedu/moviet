@@ -2,6 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
+import prismadb from '@/lib/prismadb'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <ClerkProvider>
       <html lang="en">
@@ -22,6 +24,7 @@ export default function RootLayout({
           <header className="flex items-center justify-between p-4">
             <h1 className="text-2xl font-bold"><Link href={'/'}>MovieT</Link></h1>
             <SignedIn>
+              <Link href={'/watch-next'}>Watch Next</Link>
               <UserButton afterSignOutUrl='/' />
             </SignedIn>
             <SignedOut>
