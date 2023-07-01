@@ -24,7 +24,7 @@ export default function RootLayout({
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <body className={inter.className}>
             <div className='min-h-screen'>
-              <header className="flex items-center gap-3 justify-between px-4 py-2 border-b shadow-sm">
+              <header className="z-50 flex items-center gap-3 justify-between px-4 py-2 border-b shadow-sm fixed w-full bg-white dark:bg-slate-950">
                 <h1 className="text-2xl font-bold"><Link href={'/'}>MovieT</Link></h1>
                 <div className='flex-1 items-center content-center '>
                   <Link href={'/movies'}>Movies</Link>
@@ -39,7 +39,9 @@ export default function RootLayout({
                   <ModeToggle />
                 </div>
               </header>
-              {children}
+              <div className='pt-16'>
+                {children}
+              </div>
             </div>
 
           </body>
