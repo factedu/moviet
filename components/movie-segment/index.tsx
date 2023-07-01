@@ -6,6 +6,7 @@ import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 
 
+
 export interface MovieSegmentProps {
     language: string;
     languageCode: string;
@@ -37,7 +38,8 @@ export const MovieSegment: FC<MovieSegmentProps> = ({
     const [error, setError] = useState(null);
     useEffect(() => {
         setLoading(true);
-        axios.get('/api/movies').then((res) => {
+        const base_api_url = process.env.NEXT_PUBLIC_BASE_API_URL;
+        axios.get(`${base_api_url}/movies`).then((res) => {
             console.log(res.data.results);
             setMovies(res.data.results);
         }).catch((err) => {
